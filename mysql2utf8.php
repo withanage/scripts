@@ -3,10 +3,13 @@
 
 
 /**
- * Check if mysqli is installed
+ * Check if mysqli is installed and wait 10 seconds
  */
 if (!extension_loaded('mysqli')) {
 	exit("install mysqli");
+} else {
+	echo ('Hope you did a backup of the mysql database, if not you can stop the script  within 10 seconds');
+	sleep(10);
 }
 
 
