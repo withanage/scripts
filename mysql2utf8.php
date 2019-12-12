@@ -15,8 +15,8 @@ if (!extension_loaded('mysqli')) {
 
 // define variables
 $mysql_db = 'omp_master';
-$mysql_password = 'password';
 $mysql_user = 'user';
+$mysql_password = 'password';
 $mysql_host = 'localhost';
 
 $conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_db);
@@ -65,5 +65,8 @@ function run(mysqli $conn, string $mysql_db): void {
 	convert_schema($mysql_db, $conn);
 	convert_tables($conn);
 }
+
+
+run($conn,$mysql_db);
 
 
