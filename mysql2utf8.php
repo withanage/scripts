@@ -45,13 +45,13 @@ function convert_schema(string $mysql_db, mysqli $conn): void {
  * @param mysqli $conn
  */
 function convert_tables(mysqli $conn): void {
-	$show_tables_result = mysqli_query($conn, "SHOW TABLES");
-	$tables = mysqli_fetch_all($show_tables_result);
+	$result = mysqli_query($conn, "SHOW TABLES");
+	$tables = mysqli_fetch_all($result);
 
 	foreach ($tables as $index => $table) {
-		$alter_table_sql = "ALTER TABLE " . $table[0] . " CONVERT TO CHARACTER SET utf8  COLLATE utf8_unicode_ci";
-		$alter_table_result = mysqli_query($conn, $alter_table_sql);
-		var_dump($alter_table_result);
+		$query = "ALTER TABLE " . $table[0] . " CONVERT TO CHARACTER SET utf8  COLLATE utf8_unicode_ci";
+		$t_result = mysqli_query($conn, $query);
+		var_dump($t_result);
 
 	}
 }
