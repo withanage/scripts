@@ -9,6 +9,7 @@ if (!extension_loaded('mysqli')) {
 	exit("install mysqli");
 } else {
 	echo ('Hope you did a backup of the mysql database, if not you can stop the script  within 10 seconds');
+	echo ('Nice documentation on utf8: https://mathiasbynens.be/notes/mysql-utf8mb4');
 	sleep(10);
 }
 
