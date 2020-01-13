@@ -36,7 +36,7 @@ function check_connection(mysqli $conn): void {
  * @param mysqli $conn
  */
 function convert_schema(string $mysql_db, mysqli $conn): void {
-	$alter_database_charset_sql = "ALTER DATABASE " . $mysql_db . " CHARACTER SET utf8 COLLATE utf8_unicode_ci";
+	$alter_database_charset_sql = "ALTER DATABASE " . $mysql_db . " CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci";
 	mysqli_query($conn, $alter_database_charset_sql);
 }
 
@@ -49,7 +49,7 @@ function convert_tables(mysqli $conn): void {
 	$tables = mysqli_fetch_all($result);
 
 	foreach ($tables as $index => $table) {
-		$query = "ALTER TABLE " . $table[0] . " CONVERT TO CHARACTER SET utf8  COLLATE utf8_unicode_ci";
+		$query = "ALTER TABLE " . $table[0] . " CONVERT TO CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci";
 		$t_result = mysqli_query($conn, $query);
 		var_dump($t_result);
 
